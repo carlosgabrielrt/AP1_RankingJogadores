@@ -1,0 +1,32 @@
+==================================
+JUSTIFICATIVAS
+==================================
+
+1) Quais dois algoritmos vocês escolheram?
+  Foram o Quick sort e Merge Sort.
+
+2) Qual deles utiliza a estratégia de Divisão e Conquista?
+
+     Os dois usam Divisão e Conquista. É por isso que dá pra comparar eles, os dois quebram
+o problema em partes menores antes de resolver, só que de um jeito bem diferente.
+
+QUICK SORT:
+       A gente escolhe um pivô e separa o vetor em duas partes: quem é maior ou igual ao pivô fica de um lado,
+ quem é menor fica do outro (isso acontece no particionar()). Depois é só chamar o quicksort de novo em cada lado.
+
+MERGE SORT:
+
+       A gente nem olha pros valores pra dividir, só corta o vetor bem no meio (meio = (inicio+fim)/2).
+ A parte de ordenar de verdade só acontece depois, quando junta as duas metades já ordenadas no intercalar().
+
+3) Por que escolheram esses dois algoritmos para comparar?
+
+    O Quick Sort troca os elementos de lugar mesmo, sem precisar de vetor extra, então usa menos memória,
+ o Merge Sort cria vetores novos toda vez que vai juntar as metades, então gasta mais memória só que ele nunca
+ fica muito lento,o desempenho dele é sempre estável. Já o Quick Sort pode ficar bem lento se o pivô escolhido for ruim.
+
+
+4) Qual dos dois vocês escolheriam caso a competição tivesse milhares de jogadores? Por quê?
+
+    Eu ia de Merge Sort. Com muito mais jogador, não dá pra arriscar o Quick Sort ficar lento demais
+prefere um desempenho garantido, mesmo gastando mais memória.

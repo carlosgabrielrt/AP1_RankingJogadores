@@ -8,7 +8,7 @@ public class Gerenciador {
     int[] pontosJogador = new int[jogadores.length];
 
     public void usarDadosPadrao() {
-        String[] nomesPadrao = {"Ana", "Bruna", "Francisco", "Joaquim", "Diego"};
+        String[] nomesPadrao = {"J1", "J2", "J3", "J4", "J5"};
         int[][] pontuacaoPadrao = {
                 {80, 90, 70, 85},
                 {70, 75, 80, 90},
@@ -24,9 +24,6 @@ public class Gerenciador {
             }
         }
     }
-
-
-
 
 
     public void JogadorViaTerminal(Scanner scanner) {
@@ -72,25 +69,15 @@ public class Gerenciador {
 
 
     public void consultarJogador(String nome) {
-        boolean encontrado = false;
         for (int i = 0; i < jogadores.length; i++) {
             if (jogadores[i].equalsIgnoreCase(nome)) {
-                encontrado = true;
-                System.out.print(jogadores[i] + " - Pontuações: ");
-                int total = 0;
-                for (int j = 0; j < pontuacao[i].length; j++) {
-                    System.out.print(pontuacao[i][j] + " ");
-                    total += pontuacao[i][j];
-                }
-                System.out.println("| Total: " + total);
-                break;
+                System.out.println(jogadores[i] + " possui " + pontosJogador[i] +
+                        " pontos e está em " + (i + 1) + "º lugar no ranking.");
+                return;
             }
         }
-        if (!encontrado) {
-            System.out.println("Jogador não encontrado!");
-        }
+        System.out.println("Jogador não encontrado!");
     }
-
 
     public void quickSort(int inicio, int fim) {
         if (inicio < fim) {
@@ -104,10 +91,12 @@ public class Gerenciador {
         int pivo = pontosJogador[fim];
         int i = inicio - 1;
 
-        for (int j = inicio; j < fim; j++) { // ">" = ordem decrescente
+        for (int j = inicio; j < fim; j++) {
+            if (pontosJogador[j] >= pivo) { // ">=" = ordem decrescente
                 i++;
                 trocar(i, j);
             }
+        }
 
         trocar(i + 1, fim);
         return i + 1;
@@ -174,11 +163,7 @@ public class Gerenciador {
             j++;
             k++;
         }
-
     }
-
-
-
 
     public void mostrarResultado() {
         for (int i = 0; i < jogadores.length; i++) {
@@ -190,9 +175,8 @@ public class Gerenciador {
                 total += pontuacao[i][j];
             }
             System.out.println("- Total: " + total);
-        }
-
-    }  
+          }
+    }
 
     public int somaTotal() {
 
@@ -219,6 +203,5 @@ public class Gerenciador {
             System.out.println((i + 1) + "º lugar: " + jogadores[i] + " - " + pontosJogador[i] + " pontos");
         }
     }
-
 }
 

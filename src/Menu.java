@@ -77,6 +77,8 @@ public class Menu {
                 gerenciador.mostrarRanking();
                 break;
             case 8:
+                gerenciador.somaPontosJogador();
+                gerenciador.quickSort(0, gerenciador.pontosJogador.length - 1);
                 System.out.print("Digite o nome do jogador: ");
                 scanner.nextLine();
                 String nome = scanner.nextLine();
